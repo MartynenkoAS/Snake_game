@@ -9,6 +9,7 @@ const scoreClass = new Score();
 const snakeClass = new Snake(fieldClass.field, appleClass.appleArr, scoreClass, appleClass);
 const gameOverPosition = document.querySelector(".game_over");
 let   stopInterval     = 0;
+let   snakeSpeed       = 400;
 
 gameStartFunc()
 
@@ -31,7 +32,7 @@ function gameStartFunc() {
             if (overRsn != "") {
                 gameOver(overRsn)
             }
-    }, 400);
+    }, snakeSpeed);
 }
 
 function gameOver(overReason) {                                                  // метод конец игры

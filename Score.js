@@ -2,8 +2,6 @@ class Score {
     constructor() {
         this.scorePosition     = document.querySelector(".score_value");
         this.scoreBestPosition = document.querySelector(".score_best_value");
-        this.scoreValue        = 0;
-        
     }
 
     scoreValueStart() {

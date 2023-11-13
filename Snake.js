@@ -18,7 +18,7 @@ class Snake {
             } else {
                 snake.className = "snake_body_element";
             }
-        })
+        });
         if (SnakeEndDelete) {
             let snakeEnd    = this.snakeArr.pop()
             let snake       = this._field.querySelector(`[data-x="${snakeEnd[0]}"][data-y="${snakeEnd[1]}"]`);
