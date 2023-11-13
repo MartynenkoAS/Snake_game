@@ -15,16 +15,10 @@ gameStartFunc()
 function gameStartFunc() {
     snakeClass.direction  = snakeClass.directions.left;
     snakeClass.snakeArr   = [[5, 5], [6, 5]];
-    scoreClass.scoreValue = 0;
 
-    if (localStorage.getItem("scoreBestValue") != null) {                       // если не первый запуск, читаем лучший результат из хранилища
-        scoreClass.scoreBestPosition.textContent = localStorage.getItem("scoreBestValue");
-    } else {
-        localStorage.setItem("scoreBestValue", scoreValue.toString());          // если первый запуск, записываем в хранилище - 0
-    }
-        
-    scoreClass.scorePosition.textContent = scoreClass.scoreValue;
-    
+    scoreClass.scoreValueStart()
+
+
     gameOverPosition.removeAttribute("style");
     gameOverPosition.textContent = "";
 

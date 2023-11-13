@@ -6,6 +6,16 @@ class Score {
         
     }
 
+    scoreValueStart() {
+        this.scoreValue = 0;
+        if (localStorage.getItem("scoreBestValue") != null) {                       // если не первый запуск, читаем лучший результат из хранилища
+            this.scoreBestPosition.textContent = localStorage.getItem("scoreBestValue");
+        } else {
+            localStorage.setItem("scoreBestValue", this.scoreValue.toString());          // если первый запуск, записываем в хранилище - 0
+        }  
+        this.scorePosition.textContent = this.scoreValue;
+        }
+
     scoreValueShow() {
         this.scoreValue += 1;
         this.scorePosition.textContent = this.scoreValue;
