@@ -1,13 +1,12 @@
 class Snake {
-    constructor(field, appleArr, scoreMethod, appleMethod, stopInt) {
+    constructor(field, appleArr, scoreMethod, appleMethod) {
         this.directions   = {up: "up", down: "down", left: "left", right: "right"};
-        this.direction    = this.directions.left;
-        this.snakeArr     = [[5, 5], [6, 5]];
+        // this.direction    = this.directions.left;
+        // this.snakeArr     = [[5, 5], [6, 5]];
         this._field       = field;
         this._AppleArr    = appleArr;
         this._ScoreMethod = scoreMethod;
         this._AppleMethod = appleMethod;
-        this._stopInt     = stopInt;
     }
 
     snakeGrowingFunc(SnakeEndDelete) {                  // метод отрисовки змейки
@@ -28,7 +27,7 @@ class Snake {
         }
     }
 
-    snakeMove() {                                              // метод движения змейки
+    snakeMove(stopInt) {                                              // метод движения змейки
         switch (this.direction) {
         case this.directions.right:
             this.snakeArr.splice(0, 0, [this.snakeArr[0][0]+1, this.snakeArr[0][1]]);
@@ -47,7 +46,8 @@ class Snake {
         if ((this.snakeArr[0][0] <= 10) && (this.snakeArr[0][0] >= 1) && (this.snakeArr[0][1] >= 1) && (this.snakeArr[0][1] <= 10)) {
             let snake = this._field.querySelector(`[data-x="${this.snakeArr[0][0]}"][data-y="${this.snakeArr[0][1]}"]`);
             if (snake.classList.contains("snake_body_element")) {
-                this._ScoreMethod.gameOver("Нельзя наезжать на свой хвост))", this.stopInt)
+                clearInterval(stopInt);
+                return "Нельзя наезжать на свой хвост))"
             }
             if ((this.snakeArr[0][0] == this._AppleArr[0]) && (this.snakeArr[0][1] == this._AppleArr[1])) {
                 this._ScoreMethod.scoreValueShow()                                                                 // изменяем результат на экране
@@ -57,8 +57,10 @@ class Snake {
                 this.snakeGrowingFunc(true);
             }
         } else {
-            this._ScoreMethod.gameOver("Нельзя выходить за пределы игрового поля", this.stopInt)
+            clearInterval(stopInt);
+            return "Нельзя выходить за пределы игрового поля"
         }
+        return ""
     }
 
     snakeControll() {                                                              // метод управления змейкой
