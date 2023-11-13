@@ -16,7 +16,6 @@ function gameStartFunc() {
     snakeClass.direction  = snakeClass.directions.left;
     snakeClass.snakeArr   = [[5, 5], [6, 5]];
     scoreClass.scoreValue = 0;
-    // let stopInterval = 0;
 
     if (localStorage.getItem("scoreBestValue") != null) {                       // если не первый запуск, читаем лучший результат из хранилища
         scoreClass.scoreBestPosition.textContent = localStorage.getItem("scoreBestValue");

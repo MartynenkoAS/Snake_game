@@ -1,8 +1,6 @@
 class Snake {
     constructor(field, appleArr, scoreMethod, appleMethod) {
         this.directions   = {up: "up", down: "down", left: "left", right: "right"};
-        // this.direction    = this.directions.left;
-        // this.snakeArr     = [[5, 5], [6, 5]];
         this._field       = field;
         this._AppleArr    = appleArr;
         this._ScoreMethod = scoreMethod;
